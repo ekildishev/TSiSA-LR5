@@ -1,0 +1,8 @@
+﻿  Source.cpp
+c:\my projects\tsisa\lr5\lr5\source.cpp(21): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+c:\my projects\tsisa\lr5\lr5\source.cpp(29): warning C4018: <: несоответствие типов со знаком и без знака
+c:\my projects\tsisa\lr5\lr5\source.cpp(35): warning C4018: <: несоответствие типов со знаком и без знака
+c:\my projects\tsisa\lr5\lr5\source.cpp(95): warning C4018: <: несоответствие типов со знаком и без знака
+c:\my projects\tsisa\lr5\lr5\source.cpp(168): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+c:\my projects\tsisa\lr5\lr5\source.cpp(175): warning C4018: <: несоответствие типов со знаком и без знака
+  LR5.vcxproj -> C:\My Projects\TSiSA\LR5\Debug\LR5.exe
