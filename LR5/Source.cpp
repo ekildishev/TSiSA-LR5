@@ -11,18 +11,18 @@
 std::ofstream noise("noisedFunction.txt");
 std::ofstream filter("filteredFunction.txt");
 
-double originalFunction(double x) // Оригинальная функция
+double originalFunction(double x) // РћСЂРёРіРёРЅР°Р»СЊРЅР°СЏ С„СѓРЅРєС†РёСЏ
 {
 	return sin(x) + 0.5;
 }
 
-int experimentCounter(double p, double epsilon) // Подсчет необходимого числа экспериментов
+int experimentCounter(double p, double epsilon) // РџРѕРґСЃС‡РµС‚ РЅРµРѕР±С…РѕРґРёРјРѕРіРѕ С‡РёСЃР»Р° СЌРєСЃРїРµСЂРёРјРµРЅС‚РѕРІ
 {
 	int n = (log(1 - p) / log(1 - (epsilon / M_PI)) + 1);
 	return n;
 }
 
-std::vector<double> noisedFunction(std::vector<double> x) // Зашумленная функция
+std::vector<double> noisedFunction(std::vector<double> x) // Р—Р°С€СѓРјР»РµРЅРЅР°СЏ С„СѓРЅРєС†РёСЏ
 {
 	std::vector<double> noised;
 	std::mt19937 engine(std::random_device{}());
@@ -39,7 +39,7 @@ std::vector<double> noisedFunction(std::vector<double> x) // Зашумленная функция
 	return noised;
 }
 
-std::vector<double> vectorX(double xmin, double xmax, int K) // Исходный вектор аргументов
+std::vector<double> vectorX(double xmin, double xmax, int K) // РСЃС…РѕРґРЅС‹Р№ РІРµРєС‚РѕСЂ Р°СЂРіСѓРјРµРЅС‚РѕРІ
 {
 	std::vector<double> x;
 	x.resize(K);
@@ -50,7 +50,7 @@ std::vector<double> vectorX(double xmin, double xmax, int K) // Исходный вектор 
 	return x;
 }
 
-std::vector<double> alphaGenerator(int r) // Генерация вектора альфа
+std::vector<double> alphaGenerator(int r) // Р“РµРЅРµСЂР°С†РёСЏ РІРµРєС‚РѕСЂР° Р°Р»СЊС„Р°
 {
 	std::mt19937 engine(std::random_device{}());
 	if (r == 3)
@@ -79,7 +79,7 @@ std::vector<double> alphaGenerator(int r) // Генерация вектора альфа
 	
 }
 
-std::vector<double> filtration(int K, int M, std::vector<double> function, std::vector<double> alpha, std::vector<double> x) // Фильтрация
+std::vector<double> filtration(int K, int M, std::vector<double> function, std::vector<double> alpha, std::vector<double> x) // Р¤РёР»СЊС‚СЂР°С†РёСЏ
 {
 	std::vector<double> filteredFunction;
 	double f = 1;
@@ -99,7 +99,7 @@ std::vector<double> filtration(int K, int M, std::vector<double> function, std::
 	return filteredFunction;
 }
 
-double omega(std::vector<double> function, int K) // Омега
+double omega(std::vector<double> function, int K) // РћРјРµРіР°
 {
 	double maximum = 0;
 	for (int i = 1; i < K; i++)
@@ -109,7 +109,7 @@ double omega(std::vector<double> function, int K) // Омега
 	return maximum;
 }
 
-double delta(std::vector<double> originalFunction, std::vector<double> noisedFunction, int K) // Дельта
+double delta(std::vector<double> originalFunction, std::vector<double> noisedFunction, int K) // Р”РµР»СЊС‚Р°
 {
 	double maximum = 0;
 	for (int i = 0; i < K; i++)
@@ -119,12 +119,12 @@ double delta(std::vector<double> originalFunction, std::vector<double> noisedFun
 	return maximum;
 }
 
-double distance(double omega, double delta) // Расстояние
+double distance(double omega, double delta) // Р Р°СЃСЃС‚РѕСЏРЅРёРµ
 {
 	return std::max(omega, delta);
 }
 
-std::pair<std::vector<double>, std::vector<double>> optimalForLambda(int n, int lambda, int K, int r, std::vector<double> x,std::vector<double> noised) // Поиск оптимального решения для определенного лямбда
+std::pair<std::vector<double>, std::vector<double>> optimalForLambda(int n, int lambda, int K, int r, std::vector<double> x,std::vector<double> noised) // РџРѕРёСЃРє РѕРїС‚РёРјР°Р»СЊРЅРѕРіРѕ СЂРµС€РµРЅРёСЏ РґР»СЏ РѕРїСЂРµРґРµР»РµРЅРЅРѕРіРѕ Р»СЏРјР±РґР°
 {
 	double minimum = 100;
 	std::pair<std::vector<double>, std::vector<double>> optimal;
@@ -146,7 +146,7 @@ std::pair<std::vector<double>, std::vector<double>> optimalForLambda(int n, int 
 	return optimal;
 }
 
-double lambdaOptimal(int L, int K, int r, std::vector<double> x) // Поиск оптимального значения лямбда
+double lambdaOptimal(int L, int K, int r, std::vector<double> x) // РџРѕРёСЃРє РѕРїС‚РёРјР°Р»СЊРЅРѕРіРѕ Р·РЅР°С‡РµРЅРёСЏ Р»СЏРјР±РґР°
 {
 	double minimum = 100000000;
 	double lOpt = -1;
